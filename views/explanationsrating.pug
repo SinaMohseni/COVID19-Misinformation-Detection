@@ -1,0 +1,95 @@
+doctype html
+// start with instruction - go to info sheet (cnsnt.html)
+meta(charset='utf-8')
+head
+  title Explainable Machine Learning (XAI)
+  meta(http-equiv='content-type' content='text/html;charset=utf-8')
+  link(rel='stylesheet', href='/style/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='/js/workers/workers.json')
+br
+// <div id="nextbutton3"  href="./exptxt.html" > <button onclick="location.reload();location.href='./cnsnt.html'">Continue</button> </div>
+button#nextbutton-1(onclick='nextSlide()') Continue
+button#backbutton-1(onclick='backSlide()') Back
+#formDiv
+  #cnsnttextbox
+    h1  Pet Recognition AI 
+    br
+    br
+    br
+    p
+      | We are building an AI system to recognize 
+      u  pets in images from social media 
+      |  to esmitate pet populations in cities
+    p
+      | Our AI system is trained to 
+      u  detect cats and dogs
+      |  in images.
+    p
+      | We need your help to 
+      u  evaluate the &quot;goodness&quot; of our AI 
+      |  by reviewing it&apos;s output for 15 images.
+    p
+      | Our 
+      u  AI describes where it found a pet 
+      |  by highlighting areas of the image.
+    br
+    br
+    br
+    br
+    hr
+    br
+    h1  Instructions: 
+    br
+    h2
+      | Review our AI&apos;s Explanations:
+      br
+      br
+      |  Your main task is to 
+      mark
+        u  review and rate the heatmaps
+      |  which explain what parts the AI used to make it&apos;s decision:
+    p
+      | The areas in red were the most important for identifying the pet whereas the areas in blue have little significance.
+    br
+    img.slide-img(src='http://people.tamu.edu/~sina.mohseni/data/instructions/heatmap.PNG' width='200')
+    br
+    br
+    br
+    hr
+    br
+    h3  1. Rate AI explanations for each image: 
+    br
+    ul
+      li Is the correct area selected?
+      li Does it match your expectations?
+      li Would you use the same areas to make your desicion?
+      // todo: this is similar to the one above...
+    br
+    img.slide-img(src='http://people.tamu.edu/~sina.mohseni/data/instructions/interface-1.PNG')
+    br
+    br
+    br
+    hr
+    br
+    h3  2. Click [Next Image] to Contiune (total of 15 images): 
+    br
+    img.slide-img(src='http://people.tamu.edu/~sina.mohseni/data/instructions/interface-2.PNG')
+    br
+    br
+    br
+    hr
+    br
+    h3
+      | 3. After 15 images, your HIT code is displayed, you must 
+      mark copy and paste
+      |  this in the mechanical turk page for credit:
+    br
+    img.slide-img(src='http://people.tamu.edu/~sina.mohseni/data/instructions/interface-3.PNG')
+    br
+    br
+button#nextbutton-2(onclick='nextSlide()') Continue
+button#backbutton-2(onclick='backSlide()') Back
+script(src='/js/procedureController.js')
+br
+br

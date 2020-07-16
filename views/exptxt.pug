@@ -1,0 +1,34 @@
+doctype html
+meta(charset='utf-8')
+head
+  title Explainable Machine Learning (XAI)
+  meta(http-equiv='content-type' content='text/html;charset=utf-8')
+  link(rel='stylesheet', href='/style/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://markjs.io/')
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  script(src='https://d3js.org/d3.v4.min.js')
+  script(src='https://bernii.github.io/gauge.js/dist/gauge.min.js')
+  script(src='/js/txt_adrs.js')
+button#backbutton-1(onclick='lastArticle()') Previous Article
+button#nextbutton-1(onclick='nextArticle()') Next Article
+// <div id="exit_button" > <button onclick="WriteFile()">End study</button> </div>
+// <div id="start" > <button onclick="start_over()">Start over</button> </div>
+#chartDiv
+  h3#explaination_title(style='padding-bottom: 5%;')
+    | Please highlight any words realated to &quot;topic &quot; news in this article: (1/14)
+  p
+  p
+  button#clear1(onclick='removeHighlights()') Clear Selections
+  #annotation_area
+  #pallet(style='padding-bottom: 1%;')
+  button#clear2(onclick='removeHighlights()' style='background-color: #00b33c') True News
+  button#clear2(onclick='removeHighlights()' style='background-color: #ff4d4d') False News
+  canvas#gauge_area
+  
+  
+button#nextbutton-2(onclick='nextArticle()') Next Article
+button#backbutton-2(onclick='lastArticle()') Previous Article
+// <div id="exit_button" > <button onclick="WriteFile()">End study</button> </div>
+script(src='/js/procedureController.js')
+script#maincode(src='/js/text.js')

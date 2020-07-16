@@ -1,0 +1,22 @@
+doctype html
+meta(charset='utf-8')
+head
+  title Explainable Machine Learning (XAI)
+  meta(http-equiv='content-type' content='text/html;charset=utf-8')
+  link(rel='stylesheet' href='./styles/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://d3js.org/d3.v4.min.js')
+  script(src='./libraries/bootstrap.js')
+  link(rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+button#nextbutton-1(onclick='nextArticle()') Next Article
+button#backbutton-1(onclick='lastArticle()') Previous Article
+#chartDiv
+  h3#explaination_title
+    | Please highlight any words related to &quot;Something Something&quot; topic in this Article: (1/14)
+  #text_body
+  #pallet(style='padding-bottom: 1%;')
+    // text and stars go here
+button#nextbutton-2(onclick='nextArticle()') Next Article
+button#backbutton-2(onclick='lastArticle()') Previous Article
+script(src='./scripts/procedureController.js')
+script#maincode(src='./scripts/text_feedback.js')

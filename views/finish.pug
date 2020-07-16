@@ -1,0 +1,21 @@
+doctype html
+meta(charset='utf-8')
+head
+  title Explainable Machine Learning (XAI)
+  meta(http-equiv='content-type' content='text/html;charset=utf-8')
+  link(rel='stylesheet', href='/style/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://d3js.org/d3.v4.min.js')
+#formDiv
+  #cnsnttextbox
+    h1 Thank you!
+    p Your response has been recorded
+    p
+      | You must 
+      mark copy and paste
+      |  the code below to AMT to verify HIT completion and to recieve compensation
+    #this_code(style=' margin: 0 auto; padding:1%; background-color: aliceblue; border: 1px solid #444; border-radius: 10px;  font-size: 200%;')
+      span(style='color:limegreen;padding: 2%;')
+        p#panel(style='padding-top: 2%')
+    p You may close this window at this time.
+script#maincode(src='/js/showCode.js')

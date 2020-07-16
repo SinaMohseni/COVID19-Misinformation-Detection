@@ -1,0 +1,469 @@
+body {
+  font-family: sans-serif; font-size: 80%; line-height: 1.2em; width: 95%; margin: 0 auto; background: #f0f0f0;
+  margin-top:2%;
+}
+
+/* *{ margin: 0; } */
+
+h1{
+  font-weight: bold;
+  line-height: 1.5em;
+  font-size: 1.5em;
+
+}
+
+h2{
+  font-weight: bold;
+  font-size: 1.2em;
+
+}
+
+h3{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+h4{
+  /*font-weight: bold;*/
+  font-size: 0.9em;
+}
+
+
+mark_pos { 
+  background-color: lightgreen;
+  color: black; 
+}
+
+
+mark_neg { 
+  background-color: #fa8072;
+  color: black;
+  
+}
+
+
+#title{
+  float: left;
+  position: absolute;
+  left: 10%;
+  padding-left: 20px;
+
+}
+
+#explaination_title{
+
+  padding: 3% 7% 0% 7%;
+  margin: 0;
+}
+a{
+	color: #622569;
+	text-decoration: underline;
+	font-weight: bold;
+	line-height: 1.0em;
+	font-size: 1.0em;
+}
+	a:hover,
+	a:active{ text-decoration: underline; }
+
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.save_button {
+  background-color: #e66f25;
+  border: none;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#cnsntDiv {
+  display: table;
+	font-family: sans-serif;
+	font-size: 100%; 
+	line-height: 1.2em; 
+	width: 85%; 
+	margin: 0 auto; 
+	/*background: #f0f0f0;*/
+  background: white;
+     margin-top:2%;
+     margin-right: 10%;
+
+/*  position: relative;
+  width: 100%;
+  padding-top: 100%;*/ /* 16:9 Aspect Ratio */
+/*ul li a{ box-shadow: 0px 1px 1px #999; }*/
+}
+
+#formDiv {
+  display: table;
+  font-family: sans-serif;
+  font-size: 100%; 
+  line-height: 1.2em; 
+  margin: 10 auto; 
+  background: white;
+  margin-top:2%;
+  width: 80%
+  /*margin-right: 10%;*/
+  /*display: inline-block;*/
+}
+
+#cnsnttextbox {
+  display: table-cell;
+  width: 70%; 
+  padding: 20px;
+  text-align: left;
+ }
+
+
+ .progress{
+
+  font-size: small;
+  float: right;
+  color: #666666;
+  margin: 0px;
+
+ }
+#chartDiv{
+margin-bottom: 1%;
+}
+
+
+#textbox {
+float:left;
+margin: 0 auto;
+margin-left: 5%;
+width: 40%;	
+}
+
+button{
+  padding: 1em;
+}
+#exit_button-1 {
+	display: inline-block;
+  float: left;
+  /*margin-left: 10%;*/
+}
+
+#backbutton {
+	display: inline-block;
+	margin-left: 10%
+}
+
+#category {
+  display: inline-block;
+  margin-left: 5%
+}
+
+#nextbutton-1 {
+  display: inline-block;
+  float:right;
+  /* margin-right: 10% */
+}
+
+#nextbutton-2 {
+  display: inline-block;
+  float:right;
+  /* margin-right: 10% */
+}
+
+p{
+	margin-left: 10%;
+  margin: 10px;
+	font-weight: bold;
+}
+#backbutton2 {
+	display: inline-block;
+	margin-left: 4%;
+	margin-bottom: 2%;
+}
+#nextbutton2 {
+  display: inline-block;
+  float:right;
+  margin-right: 10%;
+  margin-bottom: 2%;
+}
+
+#nextbutton3 {
+  display: table-cell;
+  /*display: inline-block;*/
+  float:right;
+  margin-right: 10%;
+  margin-top: 10%;
+}
+
+#nextbutton4 {
+  /*display: table-column;*/
+  /*display: block;*/
+  float:right;
+  margin-right: 20%;
+  margin-top: 2%;
+  /*margin-bottom: 2%;*/
+}
+
+#nextbutton5 {
+  /*display: table-column;*/
+  /*display: block;*/
+  float:right;
+  margin-right: 20%;
+  margin-bottom: 2%;
+  /*margin-bottom: 2%;*/
+}
+
+#endbutton {
+  /*display: inline-block;*/
+  float:left;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+
+
+textarea{
+  resize: none;
+  width:40%;
+  height:100%;
+  padding:3px;
+  font-size: 18px;
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+/*float:left;
+margin: 0 auto;
+margin-left: 5%;
+width: 40%;	
+*/
+ .node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+div.relative {
+    position: relative;
+    width: 800px;
+    height: 350px;
+    border: 3px solid #73AD21;
+}
+
+div.absolute {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.track-inset {
+  stroke: #ddd;
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  cursor: crosshair;
+}
+
+.tooltip {
+	background: #D791E8;
+}
+
+#chartDiv{
+  /*display: table;*/
+  padding: 3%;
+  margin: 0 auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background: white;
+  /*width: 100%*/
+     /*margin-top:2%;
+     margin-right: 10%;*/
+}
+#panel{
+  /*display: table-cell;*/
+  /*display: block*/
+  margin: 0 auto;
+  padding: 2%;
+
+  /*width: 100% ;*/
+}
+#img_box {
+  /*display: table-cell;*/
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  /*margin-left: 40%;*/
+  /*margin-top: 5%;*/
+/*  padding: 20px;*/
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+/*
+#image{
+  width: 50%;
+}*/
+/* img {
+    width: 50%;
+    margin-left: 10%;
+    height: auto;
+} */
+
+.slide-img{
+
+  display: block;
+  margin: 0 auto;
+  min-width: 500px;
+  max-width: 50%;
+
+}
+
+
+#test_img{
+  display: inline-block;
+  margin-left: 20%;
+  max-width: 600px;
+  /*width: 400px;*/
+  padding-left: 200px;
+
+}
+
+
+#img_exp{
+  display: inline-block;
+  margin-left: 20%;
+  max-width: 400px;
+  /*width: 400px;*/
+  padding-left: 200px;
+}
+
+
+#text_body{
+  width: 60%;
+  padding: 1em;
+  border-radius: 5px;
+  border: #999 solid 1.5px;
+  cursor: pointer;
+
+}
+
+
+#clear1{
+
+  display: block;
+  padding: .3em 3em;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-size: larger;
+
+}
+
+
+#clear2{
+
+  display: inline-block;
+  /*display: block;*/
+  margin-right: 5%;
+  margin-left: 5%;
+  /*margin-bottom: 10%;*/
+  float:center;
+  padding: .3em 3em;
+  /*margin: 100;*/
+  border-radius: 5px;
+  font-size: larger;
+
+}
+
+
+.highlight{
+  padding:.05em;
+}
+
+div.stars {
+
+/*  width: 270px;*/
+
+  display: inline-block;
+
+}
+
+input.star { display: none; }
+
+label.star {
+
+  float: right;
+
+  padding: 2px;
+  padding-top: 20px;
+
+  font-size: 20px;
+
+/*  color: #444;*/
+    color: #3613a3;
+
+  transition: all .2s;
+
+}
+
+
+input.star:checked ~ label.star:before {
+
+  content: '\f005';
+
+  color: #FD4;
+
+  transition: all .25s;
+    
+    text-shadow: 0 0 5px #952;
+
+}
+
+input.star-10:checked ~ label.star:before {
+
+  color: #FE7;
+
+  text-shadow: 0 0 20px #952;
+
+}
+
+ 
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+ 
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+ 
+
+label.star:before {
+
+  content: '\f006';
+
+  font-family: FontAwesome;
+}
+
+
+.disabledDiv {
+    pointer-events: none;
+    opacity: 0.4;
+}

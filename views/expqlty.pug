@@ -1,0 +1,93 @@
+doctype html
+meta(charset='utf-8')
+head
+  title Explainable Machine Learning (XAI)
+  meta(http-equiv='content-type' content='text/html;charset=utf-8')
+  link(rel='stylesheet', href='/style/style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  script(src='https://d3js.org/d3.v4.min.js')
+  script(src='/lib/bootstrap.js')
+  link(rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+  script(src='/js/img_adrs.js')
+
+
+// <div id="nextbutton" > <button onclick="nextImage()">Next Image</button> </div>
+button#nextbutton-1(onclick='nextImage()') Next Image
+button#backbutton-1(onclick='lastImage()') Previous Image
+// <div id="exit_button" > <button onclick="WriteFile()">End study</button> </div>
+// <div id="exit_button-1" > <button class="save_button" onclick="WriteFile()">Get Results</button> </div>
+br
+br
+// <div id="start" > <button onclick="start_over()">Start over</button> </div>
+// </br>
+#chartDiv
+  // <div id="panel">
+  table
+    tr
+      #panel
+    tr
+      //
+        <svg id="img_box1" class="img_box1">
+        <image id= "img_exp1" class="img_exp1" xlink:href="">
+        </svg>
+      // <div class = "image" >
+      svg#test_img_box.test_img_box
+        image#test_img.test_img(xlink:href='')
+      // </div>
+    tr
+      center
+        i  Please wait 2 seconds before rating this heatmap explanation!
+      #palette(style='margin-top: 0%; text-align: center-top;margin-left: 2%;')
+        // <div id="rating-details" class="col-md-12">How do you rate this classification?
+        h3(style='display: inline-block; vertical-align: middle; text-align: top;margin-top: 1px;margin-bottom: 40px;')  How do you rate this heatmap explanation? 
+        .stars(style='display: inline-block; margin-left: 10px;')
+          form(action='')
+            // style = "margin-left: 10px"
+            // id = "rating-starts" disabled="disabled"
+            input#star-10.star.star-10(type='radio' name='star' value='10')
+            label.star.star-10(for='star-10')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 0px;')  10 
+            input#star-9.star.star-9(type='radio' name='star' value='9')
+            label.star.star-9(for='star-9')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  9 
+            input#star-8.star.star-8(type='radio' name='star' value='8')
+            label.star.star-8(for='star-8')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  8 
+            input#star-7.star.star-7(type='radio' name='star' value='7')
+            label.star.star-7(for='star-7')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  7 
+            input#star-6.star.star-6(type='radio' name='star' value='6')
+            label.star.star-6(for='star-6')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  6 
+            input#star-5.star.star-5(type='radio' name='star' value='5')
+            label.star.star-5(for='star-5')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  5 
+            input#star-4.star.star-4(type='radio' name='star' value='4')
+            label.star.star-4(for='star-4')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  4 
+            input#star-3.star.star-3(type='radio' name='star' value='3')
+            label.star.star-2(for='star-3')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  3 
+            input#star-2.star.star-2(type='radio' name='star' value='2')
+            label.star.star-2(for='star-2')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  2 
+            input#star-1.star.star-1(type='radio' name='star' value='1')
+            label.star.star-1(for='star-1')
+              br
+              b(style='font-size: 12px;text-align: center;padding: 5px;')  1 
+  // </div>
+// <div id="nextbutton" > <button onclick="nextImage()">Next Image</button> </div>
+button#nextbutton-2(onclick='nextImage()') Next Image
+button#backbutton-2(onclick='lastImage()') Previous Image
+// <div id="exit_button" > <button class="save_button" onclick="WriteFile()">Get Results</button> </div>
+script#maincode(src='/js/imgqlty.js')
