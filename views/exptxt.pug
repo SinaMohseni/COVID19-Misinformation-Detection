@@ -10,6 +10,7 @@ head
   script(src='https://d3js.org/d3.v4.min.js')
   script(src='https://bernii.github.io/gauge.js/dist/gauge.min.js')
   script(src='/js/txt_adrs.js')
+  script(src='/data/word_level_interpretation.json')
 button#backbutton-1(onclick='lastArticle()') Previous Article
 button#nextbutton-1(onclick='nextArticle()') Next Article
 // <div id="exit_button" > <button onclick="WriteFile()">End study</button> </div>
@@ -21,11 +22,13 @@ button#nextbutton-1(onclick='nextArticle()') Next Article
   p
   button#clear1(onclick='removeHighlights()') Clear Selections
   #annotation_area
-  #pallet(style='padding-bottom: 1%;')
   button#clear2(onclick='removeHighlights()' style='background-color: #00b33c') True News
   button#clear2(onclick='removeHighlights()' style='background-color: #ff4d4d') False News
-  canvas#gauge_area
-  
+  #pallet
+    #gauge_area
+      #gauge_top_note(style='text-align: center;')
+      canvas#the_gauge
+      #gauge_note(style='text-align: center;')
   
 button#nextbutton-2(onclick='nextArticle()') Next Article
 button#backbutton-2(onclick='lastArticle()') Previous Article

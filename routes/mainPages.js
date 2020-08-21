@@ -37,7 +37,6 @@ main.renderStudyInstructions = async(req, res) => {
 }
 
 
-
 // --------------- Demo (only news review) ----------------
 main.renderStudyHome = async (req, res) => {
 
@@ -80,8 +79,6 @@ main.renderStudyHome = async (req, res) => {
 
             console.log("-- Show 1st survey")
             // res.redirect("/study/questions/mid_cond_1")   // midAI
-
-
       // ----- Second Questionnaire -----
       } else if(taskRun.current_selected_topic > second_sec  && taskRun.flags.mid_survey_1_done == true && taskRun.current_condition == 0) {
           

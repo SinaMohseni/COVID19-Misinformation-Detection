@@ -262,31 +262,31 @@ function getCookie(cname) {
             '<h1> Finishing </h1><h3>After 15 images, your HIT code is displayed, you must <mark>copy and paste</mark> this in the mechanical turk page for credit: </h3></br><img  class="slide-img" src="http://people.tamu.edu/~sina.mohseni/data/instructions/annotation-4.PNG">']
 
     // -----------------Task 4---------------------
-    }else if (user_task == "TextAnnotation"){
+    }else if (user_task == "MisInformation"){
 
         slides = [
         '<h1>Misinformation Detection AI</h1>\
         <p>Welcome, please read the instructions in this slideshow.</p>\
         <br><br>\
         <h2>Background</h2>\
-        <p> We are building an AI system that learns to learn movie reviews.</p>\
-        <p> Our AI is trained to detect <mark_pos><u>positive</u></mark_pos> and <mark_neg><u>negative</u></mark_neg> movie reviews.</p>\
-        <p> We need your help to <mark><u>choose the "most descriptive" words, phrases, or sentences </u></mark> in movie reviews to train our AI. </p>',
+        <p> We are building an AI system that learns to identify misinformation about covid-19 pandemic.</p>\
+        <p> Our AI is trained to detect <mark_pos><u>....</u></mark_pos> and <mark_neg><u>....</u></mark_neg> information.</p>\
+        <p> We need your help to <mark><u>find the "most descriptive" words, phrases, or sentences </u></mark> in tweets to train our AI. </p>',
         '<h1>Your Task</h1>\
         <br>\
         <h2>Explain Descriptive Words and Phrases to AI:</h2> \
-        <p>Your main task is to <mark><u>select words and phrases</u></mark> which explain a <mark_pos><u>positive</u></mark_pos> or <mark_neg><u>negative</u></mark_neg> movie review. </p>\
-        <p>Use your best judgement to select words (by mouse click) that you feel are the <mark><u>most important</u></mark> for identifying the review.</p>\
+        <p>Your main task is to <mark><u>select words and phrases</u></mark> which explain a <mark_pos><u>False</u></mark_pos> statements in tweets. </p>\
+        <p>Use your best judgement to select words (by mouse click) that you feel are the <mark><u>most important</u></mark> for identifying the misinformation.</p>\
         <br>\
         <p> Consider:\
           <ul>\
-            <li>What words describe a <mark_pos><u>positive</u></mark_pos> or <mark_neg><u>negative</u></mark_neg> movie review?</li>\
+            <li>What words represent the <mark_pos><u>misinformation</u></mark_pos> in this tweet?</li>\
             <li>What about phrases?</li>\
           </ul>\
         </p>\
         <img  class="slide-img" src="http://people.tamu.edu/~sina.mohseni/data/instructions/t-interface-4.png" width="200">',
         '<h1>Instructions</h1>\
-        <h2>In each movie review, click words (drag for multiple words) to <mark>mark them as important</mark>.</h2>\
+        <h2>In each tweet, click on words (drag for multiple words) to <mark>mark them as important</mark>.</h2>\
         <h2>Click [Next Article] to navigate your <mark>11</mark> articles.</h2>\
         <img  class="slide-img" src="http://people.tamu.edu/~sina.mohseni/data/instructions/t-interface-4.png" >',
         '<h1>Finishing</h1>\

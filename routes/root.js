@@ -50,6 +50,12 @@ const renderTextAnnotation = (req, res) => res.render('exptxt', {
 })
 
 
+const renderTextDemo = (req, res) => res.render('exptxtdemo', {
+  user: req.user,
+  title: "Main Task"
+})
+
+
 const renderTextRating = (req, res) => res.render('evltxt', {
   user: req.user,
   title: "Main Task"
@@ -89,6 +95,7 @@ router.get('/cnsnt', renderConsent)
 router.get('/expimg', renderImageAnnotation)
 router.get('/expqlty', renderImageRating)
 router.get('/exptxt', renderTextAnnotation)
+router.get('/misinformationdemo', renderTextDemo)
 router.get('/evltxt', renderTextRating)
 router.get('/finish', EndHit)
 

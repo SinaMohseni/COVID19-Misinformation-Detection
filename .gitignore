@@ -16,6 +16,7 @@ coverage
 
 
 # Dependency directories
+public/data/
 xai_snopes/
 node_modules/
 jspm_packages/

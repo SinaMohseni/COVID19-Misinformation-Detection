@@ -146,9 +146,10 @@ script(type='text/javascript').
   }else if (user_task == "ImageRating") {
   setCookie("task_key_id", [user_task,task_key_id.split(",")[1],task_key_id.split(",")[2]])
   location.href='/expqlty';   // feed-back
-  }else if (user_task == "TextAnnotation") {
+  }else if (user_task == "MisInformation") {
   setCookie("task_key_id", [user_task,task_key_id.split(",")[1],task_key_id.split(",")[2]])
-  location.href='/exptxt';
+  location.href='/misinformationdemo';
+  // location.href='/exptxt';
   }else if (user_task == "TextRating") {
   setCookie("task_key_id", [user_task,task_key_id.split(",")[1],task_key_id.split(",")[2]])
   location.href='/evltxt';

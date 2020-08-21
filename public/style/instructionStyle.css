@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif; font-size: 80%; line-height: 1.2em; width: 100%; margin: 0 auto; background: #f0f0f0;
+  font-family: sans-serif; font-size: 80%; line-height: 1.2em; width: 80%; margin: 0 auto; background: #f0f0f0;
   margin-top:0%;
 }
 
@@ -352,22 +352,9 @@ div.absolute {
   cursor: crosshair;
 }
 
-
-div.tooltip { 
-    position: absolute;     
-    text-align: center;     
-    width: 5%;          
-    height: 1%;
-    padding: 1%;       
-    padding-top: 0.7%;       
-    font: 12px sans-serif;    
-    font-weight: bold;
-    background: lightsteelblue; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none;     
+.tooltip {
+	background: #D791E8;
 }
-
 
 #chartDiv{
   /*display: table;*/
@@ -431,12 +418,6 @@ div.tooltip {
 }
 
 
-#xai{
-  padding: 20px;
-  border: 3px solid gray; 
-  border-radius: 10px;
-}
-
 #img_exp{
   display: inline-block;
   margin-left: 20%;
@@ -457,96 +438,12 @@ div.tooltip {
 
 
 #submit{
-  width: 48.5%;
+  width: 47.5%;
   margin-top: 1%;
-  display: inline-block;
-  /*text-align: right;*/
 }
-
-
-#nav_tweets{
-  width: 50%;
-  margin-top: 1%;
-  /*float: left;*/
-  text-align: left;
-  display: inline-block;
-}
-
-
-
-#annotate_tweets{
-  width: 50%;
-  margin-top: 1%;
-  /*float:  right;*/
-  text-align: right;
-  display: inline-block;
-}
-
-#last_box{
-  padding: 1% 1% 20% 1%;
-  /*border: 3px solid gray; */
-  border-radius: 10px;
-  width: 35%;
-  margin-top: 2%;
-  display: inline-block;
-  float:right;
-}
-
-#related_articles{
-  padding: 1%;
-  border: 3px solid gray; 
-  border-radius: 10px;
-  width: 55%;
-  margin-top: 2%;
-  display: inline-block;
-  float:left;
-}
-
-.choice_buttons {
-  display: inline-block;
-  width: 30%;
-  margin-top: 1%;
-  vertical-align: top;
-  /*float:top;*/
-}
-
-.choice_buttons button {
-  display: block;
-  background-color: #484f4f;
-  color: #f2f2f2;
-  margin-left: 1%;
-  margin-top: 5%;
-  padding: .6em 3em;
-  /*margin: 100;*/
-  border-radius: 5px;
-  font-size: larger;
-}
-
-
-.choice_buttons button:hover {
-  background-color: #52527a;
-}
-
-.choice_buttons button:not(:last-child) {
-  background-color: #484f4f;
-}
-
-#article_area{
-  /*background-color: #484f4f;*/
-  width: 60%;
-  display: inline-block;
-  /*color: #f2f2f2;*/
-  /*margin-left: 1%;*/
-  /*margin-bottom: 10%;*/
-  /*float:left;*/
-  /*padding: .3em 3em;*/
-  /*margin: 100;*/
-  /*border-radius: 5px;*/
-  /*font-size: larger;*/
-}
-
 
 #clear1{
+
   display: block;
   padding: .3em 3em;
   margin: 0 auto;
@@ -556,33 +453,20 @@ div.tooltip {
 }
 
 
-.submit_button{
+#clear2{
   display: inline-block;
-  background-color: #484f4f;
-  color: #f2f2f2;
-  margin-right: 1%;
-  margin-bottom: 5%;
-  /*float:right;*/
-  padding: .3em 2em;
-  /*margin: 100;*/
-  border-radius: 5px;
-  font-size: larger;
-}
-
-
-.nav_button{
-  display: inline-block;
+  /*display: block;*/
   background-color: #484f4f;
   color: #f2f2f2;
   margin-left: 1%;
-  margin-bottom: 5%;
-  /*float:right;*/
-  padding: .3em 2em;
+  /*margin-bottom: 10%;*/
+  float:right;
+  padding: .3em 3em;
   /*margin: 100;*/
   border-radius: 5px;
   font-size: larger;
-}
 
+}
 
 #annotation_area{
   width: 50%;
@@ -594,47 +478,20 @@ div.tooltip {
   width: 20%;
   float: top;
   display: inline-block;
-  margin-left: 2%;
 }
 
 
 #prediction{
   display: inline-block;
   width: 26%;
-  /*margin-left: 2%;*/
-  /*padding-left: 2%;*/
-  margin-top: 3%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-left: 2%;
   /*float: right;*/
   /*position: absolute;*/
   font-weight: bold;
-  font-size: larger;
   /*left: 10%;*/
-  /*padding-bottom: 0%;*/
-  /*padding: 1% 1% 20% 1%;*/
-  border: 3px solid gray; 
-  border-radius: 10px;
-}
-
-/*style='text-align: center; margin-top:2%; margin-bottom:2%;'*/
-#gauge_top_note{
-  text-align: center;
-   margin-top:2%; 
-   margin-bottom:2%;
-   font-weight: bold;
+  padding-bottom: 0%;
   font-size: larger;
 }
-
-/*(style='text-align: center; margin-top:2%; margin-bottom:2%;')*/
-#gauge_note{
-  text-align: center;
-   margin-top:2%; 
-   margin-bottom:2%;
-   font-weight: bold;
-  font-size: larger;
-}
-
 
 
 #the_gauge{
