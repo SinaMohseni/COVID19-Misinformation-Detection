@@ -10,6 +10,10 @@ labels_color = ['white', 'yellow','orange','lightseagreen']
 label_name = ['not-labeled', 'class_1','class_2','class_3' ]
 // more colors here: https://bl.ocks.org/enjalot/7c0fe907ba2010fed420
 
+// check colorStart and colorStop for Truth-o-Meter gauge colors
+
+
+
 
 neutral_score = 0.05; 
 function Fn_word_highlighting(score){
@@ -118,7 +122,6 @@ function getText(txt_adrs){
 
 // For demo 
 function readjsonfile(){
-	 // category = [categories_txt[0]];  // ,categories_txt[1]
 	textFileContents = all_tweets;
 	for (var i =0; i<all_tweets.length; i++){
 		
@@ -153,11 +156,8 @@ function start_page(){
 
 
 function showOne(){
-	
-
 		cntrl.i++;
 		showArticle(results_json[cntrl.i]);
-
 }
 
 
@@ -248,6 +248,7 @@ function nextArticle() {
 	if (saved == 0) save_json();
 	exp_data = [];	// 		});
 	word_idx = [];
+	exp_lab = []
 	cntrl.i++;
 	if(cntrl.i == cntrl.total){
 		cntrl.i--;
@@ -269,6 +270,7 @@ function lastArticle() {
 			if (saved == 0) save_json();
 			exp_data = [];
 			word_idx = [];
+			exp_lab = [];
 
 			cntrl.i--;
 			showText(results_json[cntrl.i]);
@@ -281,26 +283,25 @@ function lastArticle() {
 var words_hash = []; 
 var words_array = [];
 var results_json = [];
-var exp_data = []
+var exp_data = [];
 var word_idx =[];
+var exp_lab = [];
 var saved = 1;
 
-function save_json(){//shouldOverwrite){  
+function save_json(){ 
 	// console.log(txtfiles[1])
 	// console.log(word_idx)
 	let wordsTuple = [];
 	for (let index = 0; index < exp_data.length; index++) {
-		wordsTuple.push([word_idx[index],exp_data[index]]);	
+		wordsTuple.push([word_idx[index],exp_data[index], exp_lab[index]]);	
 	}
 	let updatedObj = {i: txtfiles[cntrl.i], p: wordsTuple}
-	// console.log(updatedObj)
+
 	let current_time_s = Math.floor(Date.now() / 1000);
         let tot_time = current_time_s - cntrl.last_time_s;
         cntrl.last_time_s = current_time_s;
-        // console.log("time on page: ", tot_time, "(s), currently stored:", updatedObj["secSinceLast"]);
         updatedObj["secSinceLast"]=tot_time;
         cntrl.timeOnPage[cntrl.i] += tot_time;
-		// if(shouldOverwrite){ //overwrite the data
 		results_json.splice(cntrl.i,1,updatedObj);
 
 	saved = 1;
@@ -310,14 +311,6 @@ function save_json(){//shouldOverwrite){
 
 function WriteFile_old(){
 
-	// if (saved == 0) save_json()
-
-	// var jsonContent = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(results_json));
-	// var a = document.createElement('a');
-	// a.href = 'data:' + jsonContent;
-	// a.download = 'results.json';
-	// a.innerHTML = 'End Study';
-	// a.click();
 	let toSave = []; //final output array to be built now and saved
         
 	
@@ -333,8 +326,6 @@ function WriteFile_old(){
 
 	for (let index = 0; index < cntrl.total; index++) {
 		results_json[index].pageTime = cntrl.timeOnPage[index];
-		// console.log(results_json[index])
-		// toSave.push(this.userData[index]);
 	}
 	
 	//push the remainder of the user data to this file.
@@ -422,8 +413,6 @@ function showText(highlightsFromMem) {
 	    svg.selectAll(".boxes-"+i.toString()).remove(); 
     }
 	svg.selectAll(".words").remove(); 
-    // var output = document.getElementById("TextArea").value;
-    // var output = sample_txt;
 	
 	words_hash = []; 
 	words_array = [];
@@ -431,7 +420,12 @@ function showText(highlightsFromMem) {
 	// new json tweet
 	the_tweet = all_tweets[cntrl.i].tweet;
 	
-	if(highlightsFromMem == undefined || highlightsFromMem.p == undefined){ //new article. has not been seen yet
+	// ---------- new tweet - has not been seen yet ----------
+	if(highlightsFromMem == undefined || highlightsFromMem.p == undefined){ 
+
+		for (let index = 0; index < the_tweet.length; index++) {
+			exp_lab.push(0);
+		}
 		
 			words_hash.push({word : "nextline",
 							idx: i,
@@ -443,8 +437,6 @@ function showText(highlightsFromMem) {
 
 		for (var i = 0; i < the_tweet.length; i++){
 
-			// TODO: add a nextline to break the tweet into two line
-
 			words_hash.push({word : the_tweet[i][0],
 							idx: i,
 							highlight: 0,
@@ -453,12 +445,15 @@ function showText(highlightsFromMem) {
 							y : 0,
 							w : 0})
 		}
+	// ---------- the tweet is already annotated ----------
 	} else {
 		wordsTuple = highlightsFromMem.p;
+		console.log("words in memory:", wordsTuple)
 		// console.log("words in memory:", wordsTuple)
 		for (let index = 0; index < wordsTuple.length; index++) {
 			word_idx.push(wordsTuple[index][0]);
 			exp_data.push(wordsTuple[index][1]);	
+			exp_lab.push(wordsTuple[index][2]);
 		}
 
 			words_hash.push({word : "nextline",
@@ -477,7 +472,6 @@ function showText(highlightsFromMem) {
 				x : 0,
 				y : 0,
 				w : 0})
-				// console.log(words_hash)
 		}
 
 		words_hash.push({word : "lastline",
@@ -490,7 +484,12 @@ function showText(highlightsFromMem) {
 		
 
 		function checkInx(i){
-			if (word_idx.includes(i)){ return 1} else{ return 0}
+			if (word_idx.includes(i)){
+			 console.log(word_idx[i],exp_data[i],exp_lab[i])
+			 return exp_lab[i]
+			}else{
+			 	return 0
+			}
 		}
 
 	}
@@ -578,6 +577,13 @@ function showText(highlightsFromMem) {
        			return "white";
        		}
 		})
+		.attr("stroke-width",function(d,i){ 
+       		if ((d.highlight > 0) &(highlight_labels == false)){
+       		  return 3; 	
+       		} else{
+       		   return 0;	
+       		}
+       	})
 		.attr("opacity", function(d,i) { 
 			if (d.highlight > 0){
 				return 1;	
@@ -644,12 +650,8 @@ function showText(highlightsFromMem) {
 			var this_sample = d3.select(this).attr('class').split("-")[1]
 			if ((dragall == 1) & (this_sample != last_sample)){							
 
-				// if (d.highlight > 0){
-
+					// --------------- Erase ---------------------
 		            if (d.highlight == labels_no){
-						
-
-						// --------------- Erase ---------------------
 						if (highlight_labels==true) {
 						svg.selectAll(".boxes-" + this_sample.toString())
 						   		    .attr("opacity", 0);
@@ -657,45 +659,46 @@ function showText(highlightsFromMem) {
 							svg.selectAll(".boxes-" + this_sample.toString())
 						   		    .attr("stroke-width", 0);
 						}	
-							d.highlight = 0;
-							// dragall = 0;
-							
-							index = exp_data.indexOf(d.word);
-							if (index > -1) {
-								exp_data.splice(index, 1);
-							}
-							index = word_idx.indexOf(d.idx);
-							// console.log(d,index)
-							if(index > -1 ){
-								word_idx.splice(index, 1);
-							}
-							if(word_idx.length == 0){
-								cntrl.unsaw();
-							}
-							saved = 0
+						d.highlight = 0;
+						// dragall = 0;
+						
+						index = exp_data.indexOf(d.word);
+						if (index > -1) {
+							exp_data.splice(index, 1);
+						}
+						index = word_idx.indexOf(d.idx);
+						if(index > -1 ){
+							word_idx.splice(index, 1);
+						}
+						// remove
+						exp_lab[d.idx] = d.highlight;
 
+						if(word_idx.length == 0){
+							cntrl.unsaw();
+						}
+						saved = 0;
+					
+					// ---------- Change Highlight Color --------------
 		            }else{
+
 		            	d.highlight += 1;	
 		            	if (highlight_labels==true) {
        		  				svg.selectAll(".boxes-" + this_sample.toString())
 								.attr("fill",labels_color[d.highlight])
 								.attr("opacity", 1);
-								cntrl.saw();
-								word_idx.push(d.idx)
-								exp_data.push(d.word)
-								saved = 0
 	       		  		}else{
 							svg.selectAll(".boxes-" + this_sample.toString())
 								.attr("stroke",labels_color[d.highlight])
 								.attr("stroke-width", 3)
 								.attr("opacity", 1);
-								cntrl.saw();
-								word_idx.push(d.idx)
-								exp_data.push(d.word)
-								saved = 0
 	       		  		}
+						cntrl.saw();
+						word_idx.push(d.idx)
+						exp_data.push(d.word)
+						exp_lab[d.idx] = d.highlight
+						console.log(d.idx,d.word,d.highlight)
+						saved = 0
 		            }
-		            
 
 				 window.getSelection().removeAllRanges();
 				 last_sample = this_sample;
@@ -717,17 +720,21 @@ function showText(highlightsFromMem) {
 					if (index > -1) {
 						exp_data.splice(index, 1);
 					}
+
 					index = word_idx.indexOf(d.idx);
-					// console.log(d,index)
 					if(index > -1 ){
 						word_idx.splice(index, 1);
 					}
+					// remove
+					exp_lab[d.idx] = d.highlight;
+
 					if(word_idx.length == 0){
 						cntrl.unsaw();
 					}
 					saved = 0
 		
 				}else{
+
 					d.highlight += 1;
 					if (highlight_labels==true) {
 						svg.selectAll(".boxes-" + this_sample.toString())
@@ -742,9 +749,10 @@ function showText(highlightsFromMem) {
 						cntrl.saw();
 						word_idx.push(d.idx)
 						exp_data.push(d.word)
+						exp_lab[d.idx] = d.highlight;
 						saved = 0
 				}
-					window.getSelection().removeAllRanges();//updateHighlights(this,d)
+					window.getSelection().removeAllRanges();
 
 			
 		})
@@ -787,7 +795,7 @@ function showText(highlightsFromMem) {
 }
 
 
-
+//  show supporting articles for each Tweet
 function showArticle(highlightsFromMem) {
 	
 	var myElement = document.createElement('chartDiv');
@@ -809,7 +817,8 @@ function showArticle(highlightsFromMem) {
 	// new json tweet
 	the_tweet = all_tweets[cntrl.i].tweet;
 	
-	if(highlightsFromMem == undefined || highlightsFromMem.p == undefined){ //new article. has not been seen yet
+	//  ---- new article. has not been seen yet ---- 
+	if(highlightsFromMem == undefined || highlightsFromMem.p == undefined){
 		
 			words_hash.push({word : "nextline",
 							idx: i,
@@ -821,8 +830,6 @@ function showArticle(highlightsFromMem) {
 
 		for (var i = 0; i < the_tweet.length; i++){
 
-			// TODO: add a nextline to break the tweet into two line
-
 			words_hash.push({word : the_tweet[i][0],
 							idx: i,
 							highlight: 0,
@@ -831,12 +838,15 @@ function showArticle(highlightsFromMem) {
 							y : 0,
 							w : 0})
 		}
+	
+	//  ---- not new - already annotated article ---- 
 	} else {
 		wordsTuple = highlightsFromMem.p;
-		// console.log("words in memory:", wordsTuple)
+		
 		for (let index = 0; index < wordsTuple.length; index++) {
 			word_idx.push(wordsTuple[index][0]);
 			exp_data.push(wordsTuple[index][1]);	
+			exp_lab.push(wordsTuple[index][2])
 		}
 
 			words_hash.push({word : "nextline",
@@ -855,7 +865,6 @@ function showArticle(highlightsFromMem) {
 				x : 0,
 				y : 0,
 				w : 0})
-				// console.log(words_hash)
 		}
 
 		words_hash.push({word : "lastline",
@@ -868,7 +877,11 @@ function showArticle(highlightsFromMem) {
 		
 
 		function checkInx(i){
-			if (word_idx.includes(i)){ return 1} else{ return 0}
+			if (word_idx.includes(i)){
+				 return 1
+			}else{
+			 	return 0
+			}
 		}
 
 	}
@@ -955,6 +968,13 @@ function showArticle(highlightsFromMem) {
        			return "white";
        		}
 		})
+		.attr("stroke-width",function(d,i){ 
+       		if ((d.highlight > 0) &(highlight_labels == false)){
+       		  return 3; 	
+       		} else{
+       		   return 0;	
+       		}
+       	})
 		.attr("opacity", function(d,i) { 
 			if (d.highlight > 0){
 				return 1;	
@@ -1010,13 +1030,6 @@ function showArticle(highlightsFromMem) {
 			var this_sample = d3.select(this).attr('class').split("-")[1]
 			if ((dragall == 1) & (this_sample != last_sample)){							
 
-				// if (d.highlight == 1){
-                //  	}else if (d.highlight == 2){
-				// 	// svg.selectAll(".boxes-" + this_sample.toString())
-				// 	// 	.attr("opacity", 0);
-				// 	// d.highlight = 0;
-				// }else{
-
 				if (d.highlight == 0){
 					d.highlight = 1;
 					
@@ -1028,11 +1041,13 @@ function showArticle(highlightsFromMem) {
 					}else{
 						svg_article.selectAll(".boxes-" + this_sample.toString())
 						.attr("stroke",labels_color[d.highlight])
+						.attr("stroke-width",3)
 						.attr("opacity", 1);
 					}
 
 					saved = 0;
 					word_idx.push(d.idx)
+					exp_lab[d.idx] = d.highlight;
 					exp_data.push(d.word)
 				}
 				 window.getSelection().removeAllRanges();
@@ -1073,11 +1088,6 @@ function showArticle(highlightsFromMem) {
 }
 
 
-function updateHighlights(event, d){
-	// console.log("called")
-
-}
-
 function getWidthOfText(txt, fontname, fontsize){
     if(getWidthOfText.c === undefined){
         getWidthOfText.c=document.createElement('canvas');
@@ -1086,15 +1096,6 @@ function getWidthOfText(txt, fontname, fontsize){
     getWidthOfText.ctx.font = fontsize + ' ' + fontname;
     return getWidthOfText.ctx.measureText(txt).width;
 }
-
-
-	
-	// if (d3.event.pageY < 200){
-	// div1.style("left", (d3.event.pageX - 120) + "px")
-	// 	.style("top", ((d3.event.pageY + 128 + (arr.length*20)) + "px"));
-	// }else{
-	// div1.style("left", (d3.event.pageX - 120) + "px")
-	// 	.style("top", ( d3.event.pageY - 128 - (arr.length*20) ) + "px");
 
 
 
@@ -1112,9 +1113,9 @@ function clearText() {
 }
 
 function removeHighlights(){
-	// button#clear2(onclick='removeHighlights()' style='background-color: #00b33c') True News
 	word_idx = [];
 	exp_data = [];
+	exp_lab = []; 
 	save_json();
 	showText(word_idx);
 	cntrl.unsaw()
@@ -1127,7 +1128,6 @@ var hidRect;
 var time_weight = 100, topic_weight = 0, action_weight = 400, cluster_weight = 20;
 var max_y = 100;
 var each_time_sec;
-// var topic_distance;
 var colors = d3.scaleOrdinal(d3.schemeCategory10); 
 
 var w_size = window,
@@ -1230,10 +1230,7 @@ var y_scale = d3.scaleLinear()
 					.style("stroke","gray")
 					.style("stroke-opacity",0.5);
 
-// txtfilename();
 readjsonfile();
-// console.log(all_tweets)
-// nextArticle();
 
 function Pages(files){
 	this.progress_start_time = Math.floor(Date.now() / 1000);
@@ -1302,17 +1299,11 @@ function updateWindow(){
 						.attr("x", explanation_x)
 						.attr("y", explanation_y);
 
-		// explanation_title.attr("x", explanation_x)
-		// 				.attr("y", explanation_y - 20);
-		
-		// svg.selectAll(".explanation_frame").attr("height", height); //(3*next_line + line_counter * next_line));
 		showText(1);
 	}
 	
 // for demo
-
 function resolveProgressButtonsDemo(){
-	// console.log(cntrl);
 	if(!cntrl.hasSeen[cntrl.i]){//turn off next button
 		// document.getElementById("nextbutton-1").disabled = false;
 		// document.getElementById("nextbutton-2").disabled = false;
